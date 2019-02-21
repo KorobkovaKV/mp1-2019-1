@@ -9,7 +9,7 @@ public:
 
 	void PRINT()
 	{
-		printf_s("%f", KG);
+		printf_s("Вес в килограммах: %f", KG);
 	}
 
 	convertweight(float l)
@@ -71,7 +71,7 @@ int main()
 	{
 		if (p == 1)
 		{
-			printf_s("Вес в килограммах: %f", m.see_in_kg());
+			m.PRINT;
 		}
 		if (p == 2)
 		{
