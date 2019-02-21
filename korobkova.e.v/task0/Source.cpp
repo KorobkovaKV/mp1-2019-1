@@ -71,7 +71,7 @@ int main()
 	{
 		if (p == 1)
 		{
-			m.see_in_kg();
+			printf_s("Вес в килограммах: %f", m.see_in_kg());
 		}
 		if (p == 2)
 		{
