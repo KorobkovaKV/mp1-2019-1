@@ -3,45 +3,56 @@
 #include <stdio.h>
 #include <locale.h>
 
-class weight {
+class convertweight {
 	float KG;
 public:
-
+	
 	void PRINT()
 	{
 		printf_s("%f", KG);
 	}
-	
-	weight()
+
+	convertweight(float l)
+	{
+		KG = l;
+	}
+
+	convertweight()
 	{
 		KG = 0;
 	}
 
+	convertweight& operator=(const convertweight &a)
+	{
+		KG = a.KG;
+		return *this;
+	}
+
 	float convert_lb() //funt
 	{
-		return KG*2.2046226218;
+		return KG * 2.2046226218;
 	}
-		
+
 	float convert_pud() //pud
 	{
-		return KG*0.06104821097;
+		return KG * 0.06104821097;
 	}
-		
+
 	float convert_t() //tonna
 	{
-		return KG*0.001;
+		return KG * 0.001;
 	}
 
 	float convert_oz() // uncia
 	{
-		return KG*35.2739619496;
+		return KG * 35.2739619496;
 	}
 
-	void SCAN()
+	float see_in_kg()
 	{
-		scanf_s("%f", &KG);
+		return KG;
 	}
-			
+	
 };
 	
 int main()
@@ -49,9 +60,9 @@ int main()
 	setlocale(LC_ALL, "Rus");
 	int p;
 	int c;
-	weight m;
+	convertweight m;
 	printf_s("Здравствуйте! Введите массу в кг \n");
-	m.SCAN();
+	scanf_s("%f", &m);
 
 	printf_s("Выберите, что вы хотите сделать \n Если вы хотите узнать вес в кг, введите 1 \n Если вы хотите узнать вес в других единицах измерения, введите 2 \n");
 	scanf_s("%d", &p);
@@ -60,7 +71,7 @@ int main()
 	{
 		if (p == 1)
 		{
-			m.PRINT();
+			m.see_in_kg();
 		}
 		if (p == 2)
 		{
