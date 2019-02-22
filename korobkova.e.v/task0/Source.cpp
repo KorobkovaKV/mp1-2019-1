@@ -48,11 +48,10 @@ public:
 		return KG * 35.2739619496;
 	}
 
-	float see_in_kg()
+	void set_weight(float y)
 	{
-		return KG;
+		KG = y;
 	}
-
 };
 
 int main()
@@ -60,18 +59,19 @@ int main()
 	setlocale(LC_ALL, "Rus");
 	int p;
 	int c;
+	float y;
 	convertweight m;
 	printf_s("Здравствуйте! Введите массу в кг \n");
 	scanf_s("%f", &m);
 
-	printf_s("Выберите, что вы хотите сделать \n Если вы хотите узнать вес в кг, введите 1 \n Если вы хотите узнать вес в других единицах измерения, введите 2 \n");
+	printf_s("Выберите, что вы хотите сделать \n Если вы хотите узнать вес в кг, введите 1 \n Если вы хотите узнать вес в других единицах измерения, введите 2 \n Если вы хотите установить вес, введите 3\n");
 	scanf_s("%d", &p);
 
-	if (p > 0 && p < 3)
+	if (p > 0 && p < 4)
 	{
 		if (p == 1)
 		{
-			m.PRINT;
+			m.PRINT();
 		}
 		if (p == 2)
 		{
@@ -93,6 +93,14 @@ int main()
 				printf_s("Масса в унциях = %f", m.convert_oz());
 				break;
 			}
+		}
+		if (p == 3)
+		{
+			printf_s("Установите нужный вес\n");
+			scanf_s("%f", &y);
+			convertweight m(y);
+			m.set_weight(y);
+			m.PRINT();
 		}
 	}
 	else
